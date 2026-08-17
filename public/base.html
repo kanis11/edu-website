@@ -4,95 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Greenwood Academy{% endblock %}</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
     {% block extra_head %}{% endblock %}
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="nav-container">
-            <a href="{{ url_for('index') }}" class="brand-logo">
-                <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Greenwood Academy Logo" class="logo-img">
-                <div class="brand-text">
-                    <span class="institute-name">GREENWOOD ACADEMY</span>
-                    <span class="portal-tag">EXCELLENCE IN EDUCATION</span>
-                </div>
+<header class="navbar">
+    <div class="nav-container">
+
+        <a href="{{ url_for('index') }}" class="brand-logo">
+            <img src="{{ url_for('static', filename='images/logo.svg') }}"
+                 alt="Greenwood Academy Logo"
+                 class="logo-img">
+
+            <div class="brand-text">
+                <span class="institute-name">GREENWOOD ACADEMY</span>
+                <span class="portal-tag">EXCELLENCE IN EDUCATION</span>
+            </div>
+        </a>
+
+        <button class="mobile-menu-toggle"
+                onclick="toggleMobileMenu()"
+                aria-label="Menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="nav-menu" id="primary-nav">
+            <a href="{{ url_for('index') }}" class="nav-link">
+                <i class="fa-solid fa-house"></i> Home
             </a>
 
-            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMobileMenu()">
-                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            <a href="{{ url_for('admission') }}" class="nav-link">
+                <i class="fa-solid fa-file-pen"></i> Admission
+            </a>
+
+            <a href="{{ url_for('gallery') }}" class="nav-link">
+                <i class="fa-solid fa-images"></i> Gallery
+            </a>
+
+            <a href="{{ url_for('faculty') }}" class="nav-link">
+                <i class="fa-solid fa-chalkboard-user"></i> Faculty
+            </a>
+
+            <a href="{{ url_for('events') }}" class="nav-link">
+                <i class="fa-solid fa-calendar-days"></i> Events
+            </a>
+        </nav>
+
+        <div class="nav-actions">
+            <button id="theme-toggle"
+                    class="btn-secondary-icon"
+                    onclick="toggleTheme()">
+                <i class="fa-solid fa-moon"></i>
             </button>
-
-            <nav class="nav-menu" id="primary-nav">
-                <a href="{{ url_for('index') }}" class="nav-link"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a>
-                <a href="{{ url_for('admission') }}" class="nav-link"><i class="fa-solid fa-file-pen" aria-hidden="true"></i> Admission</a>
-                <a href="{{ url_for('gallery') }}" class="nav-link"><i class="fa-solid fa-images" aria-hidden="true"></i> Gallery</a>
-                <a href="{{ url_for('faculty') }}" class="nav-link"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i> Faculty</a>
-                <a href="{{ url_for('events') }}" class="nav-link"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Events</a>
-            </nav>
-
-            <div class="nav-actions">
-                <button class="btn-secondary-icon" id="theme-toggle" aria-label="Switch to dark mode" onclick="toggleTheme()">
-                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
-                </button>
-            </div>
         </div>
-    </header>
 
-    <main class="main-container">
-        {% block content %}{% endblock %}
-    </main>
+    </div>
+</header>
 
-    <footer class="site-footer">
-        <div class="footer-grid">
-            <div>
-                <h3>Greenwood Academy</h3>
-                <p>Empowering students with knowledge, skills, and values since 1998.</p>
-            </div>
-            <div>
-                <h4>Contact</h4>
-                <p><i class="fa-solid fa-location-dot"></i> 42 Knowledge Park, New Delhi 110001</p>
-                <p><i class="fa-solid fa-phone"></i> +91 11 4567 8900</p>
-                <p><i class="fa-solid fa-envelope"></i> info@greenwoodacademy.edu</p>
-            </div>
-            <div>
-                <h4>Quick Links</h4>
-                <a href="{{ url_for('admission') }}">Apply Now</a>
-                <a href="{{ url_for('events') }}">Upcoming Events</a>
-                <a href="{{ url_for('faculty') }}">Our Faculty</a>
-            </div>
-        </div>
-        <p class="footer-copy">&copy; 2026 Greenwood Academy. All rights reserved.</p>
-    </footer>
+<main class="main-container">
+    {% block content %}{% endblock %}
+</main>
 
-    <!-- Floating Chat Widget -->
-    <div id="chat-widget" class="chat-widget" aria-live="polite">
-        <div class="chat-widget-header">
-            <div><i class="fa-solid fa-robot"></i> Student Help Desk</div>
-            <button class="close-btn-light" aria-label="Close chat" onclick="toggleChatWidget()">&times;</button>
+<footer class="site-footer">
+
+    <div class="footer-grid">
+
+        <div>
+            <h3>Greenwood Academy</h3>
+            <p>Empowering students with knowledge, skills, and values since 1998.</p>
         </div>
-        <div id="chat-messages" class="chat-messages" role="log">
-            <div class="message bot msg-animate">Hello! Ask about admissions, courses, or campus events.</div>
+
+        <div>
+            <h4>Contact</h4>
+            <p><i class="fa-solid fa-location-dot"></i> 42 Knowledge Park, New Delhi 110001</p>
+            <p><i class="fa-solid fa-phone"></i> +91 11 4567 8900</p>
+            <p><i class="fa-solid fa-envelope"></i> info@greenwoodacademy.edu</p>
         </div>
-        <form class="chat-input-area" onsubmit="sendChatMessage(event)">
-            <input type="text" id="chat-input" placeholder="Type your question..." autocomplete="off" aria-label="Chat message">
-            <button type="submit" class="btn-accent" aria-label="Send"><i class="fa-solid fa-paper-plane"></i></button>
-        </form>
+
+        <div>
+            <h4>Quick Links</h4>
+            <a href="{{ url_for('admission') }}">Apply Now</a><br>
+            <a href="{{ url_for('events') }}">Upcoming Events</a><br>
+            <a href="{{ url_for('faculty') }}">Our Faculty</a>
+        </div>
+
     </div>
 
-    <button id="chat-fab" class="chat-fab" aria-label="Open student support chat" aria-expanded="false" onclick="toggleChatWidget()">
-        <i class="fa-solid fa-comments chat-fab-icon"></i>
-        <span class="chat-fab-pulse"></span>
+    <p class="footer-copy">
+        &copy; 2026 Greenwood Academy. All rights reserved.
+    </p>
+
+</footer>
+
+<!-- Chat Widget -->
+<div id="chat-widget" class="chat-widget">
+
+    <div class="chat-widget-header">
+        <div>
+            <i class="fa-solid fa-robot"></i> Student Help Desk
+        </div>
+
+        <button onclick="toggleChatWidget()">&times;</button>
+    </div>
+
+    <div id="chat-messages" class="chat-messages">
+        <div class="message bot">
+            Hello! Ask about admissions, courses, or campus events.
+        </div>
+    </div>
+
+    <form class="chat-input-area" onsubmit="sendChatMessage(event)">
+        <input id="chat-input"
+               type="text"
+               placeholder="Type your question...">
+
+        <button type="submit">
+            <i class="fa-solid fa-paper-plane"></i>
+        </button>
+    </form>
+
+</div>
+
+<button id="chat-fab"
+        class="chat-fab"
+        onclick="toggleChatWidget()">
+    <i class="fa-solid fa-comments"></i>
+</button>
+
+<dialog id="lightbox-modal" class="lightbox-modal">
+
+    <button class="close-btn"
+            onclick="closeModal('lightbox-modal')">
+        &times;
     </button>
 
-    <dialog id="lightbox-modal" class="modal lightbox-modal">
-        <button class="close-btn" aria-label="Close" onclick="closeModal('lightbox-modal')">&times;</button>
-        <img id="lightbox-img" src="" alt="Gallery preview">
-        <p id="lightbox-caption"></p>
-    </dialog>
+    <img id="lightbox-img" src="" alt="Gallery">
+    <p id="lightbox-caption"></p>
 
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    {% block extra_scripts %}{% endblock %}
+</dialog>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+{% block extra_scripts %}{% endblock %}
+
 </body>
 </html>

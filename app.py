@@ -1,26 +1,30 @@
 from flask import Flask, render_template
 
-app = Flask(__name__, template_folder='public', static_folder='static')
+app = Flask(
+    __name__,
+    template_folder="public",
+    static_folder="static"
+)
 
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
 
-@app.route('/admission')
+@app.route("/admission")
 def admission():
-    return render_template('admission.html')
+    return render_template("admission.html")
 
-@app.route('/gallery')
+@app.route("/gallery")
 def gallery():
-    return render_template('gallery.html')
+    return render_template("gallery.html")
 
-@app.route('/faculty')
+@app.route("/faculty")
 def faculty():
-    return render_template('faculty.html')
+    return render_template("faculty.html")
 
-@app.route('/events')
+@app.route("/events")
 def events():
-    return render_template('events.html')
+    return render_template("events.html")
 
-if __name__ == '__main__':
-    app.run(debug=True, host='localhost', port=5000)
+if __name__ == "__main__":
+    app.run(host="localhost", port=5000, debug=True)

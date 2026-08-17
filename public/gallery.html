@@ -1,53 +1,39 @@
 {% extends "base.html" %}
-{% block title %}Gallery - Greenwood Academy{% endblock %}
+
+{% block title %}Gallery{% endblock %}
 
 {% block content %}
 
 <section class="page-header">
     <h1>Campus Gallery</h1>
-    <p>Explore life at Greenwood Academy — classrooms, labs, sports, cultural events, and celebrations.</p>
+    <p>Explore life at Greenwood Academy.</p>
 </section>
 
+<section class="gallery-grid">
+
 {% set images = [
-    {"img":"admission.svg","title":"Admission","desc":"Join Greenwood Academy"},
-    {"img":"campus.svg","title":"Campus","desc":"Beautiful campus grounds"},
-    {"img":"event1.svg","title":"Annual Sports Day","desc":"Athletes competing on the school track field"},
-    {"img":"event2.svg","title":"Science Expo","desc":"Showcasing student research projects"},
-    {"img":"event3.svg","title":"Tech Festival","desc":"Innovation and coding competitions"},
-    {"img":"event4.svg","title":"Cultural Fest","desc":"Celebrating diverse talents"},
-    {"img":"event5.svg","title":"Annual Awards","desc":"Recognition of student achievements"},
-    {"img":"faculty1.svg","title":"Dr. Rajesh Kumar","desc":"Principal & Science Department Head"},
-    {"img":"faculty2.svg","title":"Ms. Priya Sharma","desc":"Mathematics Department Head"},
-    {"img":"faculty3.svg","title":"Mr. Amit Patel","desc":"English Literature Specialist"},
-    {"img":"faculty4.svg","title":"Dr. Sneha Verma","desc":"Physics & Innovation Lab Director"},
-    {"img":"faculty5.svg","title":"Ms. Neha Singh","desc":"Computer Science & Coding Instructor"},
-    {"img":"faculty6.svg","title":"Mr. Vikram Desai","desc":"Sports & Physical Education Director"},
-    {"img":"gallery1.svg","title":"Smart Classroom Session","desc":"Students engaged in interactive digital learning"},
-    {"img":"gallery2.svg","title":"Science Laboratory","desc":"Hands-on experiments in our modern science lab"},
-    {"img":"gallery3.svg","title":"Annual Sports Day","desc":"Athletes competing on the school track field"},
-    {"img":"gallery4.svg","title":"Cultural Festival","desc":"Students performing at the annual cultural fest"},
-    {"img":"gallery5.svg","title":"Library & Reading Room","desc":"Quiet study space with 10,000+ books"},
-    {"img":"gallery6.svg","title":"Art & Craft Workshop","desc":"Creative expression through painting and crafts"},
-    {"img":"gallery7.svg","title":"Computer Lab","desc":"Coding and robotics sessions for senior students"},
-    {"img":"gallery8.svg","title":"Graduation Ceremony","desc":"Celebrating the achievements of our graduates"},
-    {"img":"logo.svg","title":"Greenwood Academy Logo","desc":"Pride and identity of our institution"},
-    {"img":"students.svg","title":"Student Life","desc":"Moments from daily student activities"}
+    {"img":"gallery1.svg","title":"Smart Classroom","desc":"Interactive learning"},
+    {"img":"gallery2.svg","title":"Science Lab","desc":"Modern laboratory"},
+    {"img":"gallery3.svg","title":"Sports Day","desc":"Annual athletics"}
 ] %}
 
-<section class="gallery-grid">
-    {% for item in images %}
-    <figure class="gallery-item fade-in"
-        onclick='openLightbox("{{ url_for(&#39;static&#39;, filename=&#39;images/&#39; + item.img) }}", "{{ item.title }}")'>
+{% for item in images %}
 
-        <img src="{{ url_for('static', filename='images/' + item.img) }}"
-             alt="{{ item.title }}">
+<figure class="gallery-item"
+onclick='openLightbox("{{ url_for(&#39;static&#39;, filename=&#39;images/&#39; + item.img) }}", "{{ item.title }}")'>
 
-        <figcaption>
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.desc }}</p>
-        </figcaption>
-    </figure>
-    {% endfor %}
+    <img src="{{ url_for('static', filename='images/' + item.img) }}"
+         alt="{{ item.title }}">
+
+    <figcaption>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.desc }}</p>
+    </figcaption>
+
+</figure>
+
+{% endfor %}
+
 </section>
 
 {% endblock %}
