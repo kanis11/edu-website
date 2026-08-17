@@ -50,6 +50,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
@@ -149,12 +150,14 @@ body {
     align-items: center;
     gap: 0.5rem;
     text-decoration: none;
-    transition: background-color 0.2s, transform 0.15s;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 6px rgba(30, 64, 175, 0.2);
 }
 
 .btn-primary:hover {
     background-color: var(--primary-hover);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(30, 64, 175, 0.3);
 }
 
 .btn-accent {
@@ -169,11 +172,13 @@ body {
     align-items: center;
     gap: 0.5rem;
     text-decoration: none;
-    transition: transform 0.15s;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 6px rgba(245, 158, 11, 0.25);
 }
 
 .btn-accent:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(245, 158, 11, 0.35);
 }
 
 .btn-outline {
@@ -225,9 +230,11 @@ body {
 }
 
 .page-header h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     margin-bottom: 0.5rem;
     color: var(--primary-blue);
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 [data-theme="dark"] .page-header h1 {
@@ -296,12 +303,13 @@ body {
     border-radius: 10px;
     padding: 1.5rem;
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .stat-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .stat-number {
@@ -327,8 +335,14 @@ body {
 
 .section-title {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-hover) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .section-subtitle {
@@ -348,11 +362,13 @@ body {
     border: 1px solid var(--border-color);
     border-radius: 10px;
     padding: 1.75rem;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .feature-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .feature-icon {
@@ -416,6 +432,7 @@ body {
     border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
 }
 
 .admission-form fieldset {
@@ -515,6 +532,7 @@ body {
     padding: 1.5rem;
     position: sticky;
     top: 90px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
 }
 
 .form-sidebar img {
@@ -569,36 +587,48 @@ body {
 .gallery-item {
     background: var(--bg-surface);
     border: 1px solid var(--border-color);
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+    position: relative;
 }
 
 .gallery-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
 }
 
 .gallery-item img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
     display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
 }
 
 .gallery-item figcaption {
-    padding: 1rem;
+    padding: 1.25rem;
+    background: var(--bg-surface);
+    position: relative;
+    z-index: 2;
 }
 
 .gallery-item h3 {
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
 }
 
 .gallery-item p {
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
+    line-height: 1.5;
 }
 
 /* Faculty */
@@ -614,12 +644,13 @@ body {
     border-radius: 12px;
     overflow: hidden;
     display: flex;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
 }
 
 .faculty-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
 }
 
 .faculty-photo {
@@ -691,12 +722,13 @@ body {
     gap: 1.5rem;
     align-items: center;
     padding: 1.5rem;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
 }
 
 .event-card:hover {
-    transform: translateX(4px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    transform: translateX(5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .event-date {
@@ -819,12 +851,13 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
-    transition: transform 0.3s;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35), 0 0 0 0 rgba(245, 158, 11, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .chat-fab:hover {
-    transform: scale(1.1);
+    transform: scale(1.12);
+    box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4), 0 0 0 0 rgba(245, 158, 11, 0.3);
 }
 
 .chat-fab-icon {
@@ -1017,8 +1050,20 @@ body {
     border-radius: 12px;
     background: var(--bg-surface);
     color: var(--text-main);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
     position: relative;
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
 
 .modal::backdrop {
