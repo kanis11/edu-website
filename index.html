@@ -3,28 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduPortal — Learning Hub</title>
+  <title>Data Science Hub</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Navigation Header -->
+  <!-- Header -->
   <header class="navbar">
     <div class="container nav-container">
       <a href="#" class="brand">
-        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-          <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-        </svg>
-        <span>EduPortal</span>
+        <span>DataSci Hub</span>
       </a>
-
       <nav class="nav-links">
-        <a href="#courses">Courses</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <button id="theme-toggle" class="btn-theme" aria-label="Toggle Dark Mode">
-          🌙
-        </button>
+        <a href="#courses">Modules</a>
+        <button id="theme-toggle" class="btn-theme">🌙</button>
       </nav>
     </div>
   </header>
@@ -32,121 +23,96 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-container">
-      <div class="hero-content">
-        <span class="badge">Structured Learning</span>
-        <h1>Master Web Development & Modern Tech</h1>
-        <p>Access structured course modules, interactive exercises, and guided learning paths designed for modern web professionals.</p>
-        <div class="hero-actions">
-          <a href="#courses" class="btn btn-primary">Browse Courses</a>
-          <a href="#about" class="btn btn-secondary">Learn More</a>
-        </div>
+      <span class="badge">Data Science Track</span>
+      <h1>Master Data Science & Analytics</h1>
+      <p>From Python fundamentals to Machine Learning models. Download our starter guide to begin.</p>
+      <div class="hero-actions">
+        <!-- Direct PDF Download Link -->
+        <a href="assets/data-science-roadmap.pdf" download class="btn btn-primary">
+          📥 Download Free Roadmap (PDF)
+        </a>
+        <a href="#courses" class="btn btn-secondary">Explore Modules</a>
       </div>
     </div>
   </section>
 
-  <!-- Courses Section -->
+  <!-- Data Science Modules -->
   <section id="courses" class="courses container">
     <div class="section-header">
-      <h2>Featured Learning Paths</h2>
-      <p>Filter by topic to find the lessons relevant to your current goals.</p>
+      <h2>Curriculum Modules</h2>
+      <p>Select a module to review topics or grab the lesson PDF.</p>
     </div>
 
-    <!-- Category Filter Controls -->
-    <div class="filter-bar">
-      <button class="filter-btn active" data-filter="all">All Modules</button>
-      <button class="filter-btn" data-filter="frontend">Frontend</button>
-      <button class="filter-btn" data-filter="backend">Backend</button>
-      <button class="filter-btn" data-filter="tools">Developer Tools</button>
-    </div>
-
-    <!-- Course Cards Grid -->
-    <div class="course-grid" id="course-grid">
+    <div class="course-grid">
       
-      <article class="card" data-category="frontend">
+      <!-- Module 1 -->
+      <article class="card">
         <div class="card-header">
-          <span class="card-category">Frontend</span>
-          <span class="card-duration">4 Weeks</span>
+          <span class="card-category">Foundation</span>
+          <span class="card-duration">3 Weeks</span>
         </div>
         <div class="card-body">
-          <h3>Semantic HTML & Modern CSS</h3>
-          <p>Master layout techniques including CSS Grid, Flexbox, CSS Variables, and responsive design systems.</p>
+          <h3>Python for Data Analysis</h3>
+          <p>Learn NumPy, Pandas, data cleaning, and handling structured datasets efficiently.</p>
         </div>
         <div class="card-footer">
-          <span class="status">12 Lessons</span>
-          <button class="btn-link" onclick="openModule('HTML & CSS')">View Module &rarr;</button>
+          <button class="btn-link" onclick="openModule('Python for Data Analysis', 'assets/data-science-roadmap.pdf')">
+            Start Learning &rarr;
+          </button>
         </div>
       </article>
 
-      <article class="card" data-category="frontend">
+      <!-- Module 2 -->
+      <article class="card">
         <div class="card-header">
-          <span class="card-category">Frontend</span>
-          <span class="card-duration">6 Weeks</span>
-        </div>
-        <div class="card-body">
-          <h3>JavaScript Fundamentals & DOM</h3>
-          <p>Learn core JS mechanics, event handling, asynchronous programming, dynamic UI updates, and API integration.</p>
-        </div>
-        <div class="card-footer">
-          <span class="status">18 Lessons</span>
-          <button class="btn-link" onclick="openModule('JavaScript')">View Module &rarr;</button>
-        </div>
-      </article>
-
-      <article class="card" data-category="tools">
-        <div class="card-header">
-          <span class="card-category">Developer Tools</span>
+          <span class="card-category">Visualization</span>
           <span class="card-duration">2 Weeks</span>
         </div>
         <div class="card-body">
-          <h3>Git, GitHub & Deployment</h3>
-          <p>Understand branch workflows, version control, collaboration best practices, and continuous deployment via Netlify.</p>
+          <h3>Data Visualization & EDA</h3>
+          <p>Master Matplotlib and Seaborn to extract insights and build intuitive visual charts.</p>
         </div>
         <div class="card-footer">
-          <span class="status">8 Lessons</span>
-          <button class="btn-link" onclick="openModule('Git & Deployment')">View Module &rarr;</button>
+          <button class="btn-link" onclick="openModule('Data Visualization & EDA', 'assets/data-science-roadmap.pdf')">
+            Start Learning &rarr;
+          </button>
         </div>
       </article>
 
-      <article class="card" data-category="backend">
+      <!-- Module 3 -->
+      <article class="card">
         <div class="card-header">
-          <span class="card-category">Backend</span>
+          <span class="card-category">Machine Learning</span>
           <span class="card-duration">5 Weeks</span>
         </div>
         <div class="card-body">
-          <h3>Node.js & REST APIs</h3>
-          <p>Build robust server-side applications, route HTTP requests, handle JSON payloads, and connect to databases.</p>
+          <h3>Machine Learning Basics</h3>
+          <p>Supervised vs. unsupervised learning, Scikit-Learn pipelines, regression, and classification models.</p>
         </div>
         <div class="card-footer">
-          <span class="status">15 Lessons</span>
-          <button class="btn-link" onclick="openModule('Node.js')">View Module &rarr;</button>
+          <button class="btn-link" onclick="openModule('Machine Learning Basics', 'assets/data-science-roadmap.pdf')">
+            Start Learning &rarr;
+          </button>
         </div>
       </article>
 
     </div>
   </section>
 
-  <!-- Interactive Modal Dialog -->
+  <!-- Interactive Modal with PDF Download -->
   <dialog id="lesson-modal" class="modal">
     <div class="modal-content">
-      <button class="modal-close" id="modal-close" aria-label="Close dialog">&times;</button>
+      <button class="modal-close" id="modal-close">&times;</button>
       <h3 id="modal-title">Module Overview</h3>
-      <p id="modal-description">Detailed syllabus content will load here dynamically.</p>
+      <p id="modal-description">Course details load here...</p>
       <div class="modal-actions">
-        <button class="btn btn-primary" id="modal-confirm">Start Learning</button>
+        <!-- Dynamic PDF Download Button inside Modal -->
+        <a id="modal-download-btn" href="#" download class="btn btn-primary">
+          📄 Download Starter PDF
+        </a>
       </div>
     </div>
   </dialog>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-container">
-      <p>&copy; 2026 EduPortal. Built with static HTML, CSS, and JS.</p>
-      <div class="footer-links">
-        <a href="#courses">Courses</a>
-        <a href="#about">Privacy Policy</a>
-      </div>
-    </div>
-  </footer>
 
   <script src="app.js"></script>
 </body>

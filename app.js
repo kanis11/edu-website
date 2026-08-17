@@ -1,79 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Dark Mode Toggle with localStorage persistence
+  // Theme Toggle
   const themeToggleBtn = document.getElementById('theme-toggle');
-  const savedTheme = localStorage.getItem('theme');
-
-  if (savedTheme) {
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    themeToggleBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    document.documentElement.setAttribute('data-theme', dark);
-    themeToggleBtn.textContent = '☀️';
-  }
-
   themeToggleBtn.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    themeToggleBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    themeToggleBtn.textContent = isDark ? '🌙' : '☀️';
   });
 
-  // 2. Course Category Filtering
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const courseCards = document.querySelectorAll('.card');
-
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Manage active button state
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-
-      const filterValue = button.getAttribute('data-filter');
-
-      // Filter grid cards
-      courseCards.forEach(card => {
-        const cardCategory = card.getAttribute('data-category');
-        if (filterValue === 'all' || cardCategory === filterValue) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    });
-  });
-
-  // 3. Modal Dialog Handling
+  // Modal Close Handling
   const modal = document.getElementById('lesson-modal');
   const modalCloseBtn = document.getElementById('modal-close');
-  const modalConfirmBtn = document.getElementById('modal-confirm');
 
-  modalCloseBtn.addEventListener('click', () => {
-    modal.close();
-  });
-
-  modalConfirmBtn.addEventListener('click', () => {
-    alert('Syllabus download starting...');
-    modal.close();
-  });
-
-  // Close modal when clicking on backdrop
-  modal.addEventListener('click', (event) => {
-    if (event.target === modal) {
-      modal.close();
-    }
+  modalCloseBtn.addEventListener('click', () => modal.close());
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.close();
   });
 });
 
-// Global function called by card buttons
-function openModule(moduleTitle) {
+// Function triggered when "Start Learning" is clicked
+function openModule(moduleTitle, pdfPath) {
   const modal = document.getElementById('lesson-modal');
   const modalTitle = document.getElementById('modal-title');
   const modalDescription = document.getElementById('modal-description');
+  const modalDownloadBtn = document.getElementById('modal-download-btn');
 
-  modalTitle.textContent = `${moduleTitle} Overview`;
-  modalDescription.textContent = `You selected the ${moduleTitle} course track. This module includes step-by-step documentation, interactive quizzes, and project assignments.`;
+  modalTitle.textContent = moduleTitle;
+  modalDescription.textContent = `Welcome to ${moduleTitle}! Click below to download the introductory lesson PDF and kickstart your study session.`;
   
+  // Attach the PDF file path directly to the download button
+  modalDownloadBtn.href = pdfPath;
+
   modal.showModal();
 }
