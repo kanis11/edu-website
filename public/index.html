@@ -4,76 +4,187 @@
 
 {% block content %}
 
+<style>
+.hero{
+    background: linear-gradient(135deg,#0f4c81,#1b6ca8);
+    color:#fff;
+    padding:70px 40px;
+    border-radius:18px;
+    text-align:center;
+    margin-bottom:50px;
+}
+.hero h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+.hero p{
+    font-size:18px;
+    max-width:700px;
+    margin:auto;
+    line-height:1.7;
+    opacity:.95;
+}
+.hero-btns{
+    margin-top:30px;
+}
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    margin:8px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+.btn-primary{
+    background:#fff;
+    color:#0f4c81;
+}
+.btn-primary:hover{
+    background:#e9f4ff;
+}
+.btn-outline{
+    border:2px solid #fff;
+    color:#fff;
+}
+.btn-outline:hover{
+    background:#fff;
+    color:#0f4c81;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+.section-title h2{
+    color:#0f4c81;
+    font-size:34px;
+}
+.section-title p{
+    color:#666;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+.card{
+    background:#fff;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+    transition:.3s;
+}
+.card:hover{
+    transform:translateY(-6px);
+}
+.icon{
+    width:60px;
+    height:60px;
+    background:#e8f4ff;
+    color:#0f4c81;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    margin-bottom:18px;
+}
+.card h3{
+    color:#0f4c81;
+    margin-bottom:10px;
+}
+.card p{
+    color:#555;
+    line-height:1.6;
+}
+
+.stats{
+    margin:60px 0;
+    background:#f5f9fc;
+    border-radius:18px;
+    padding:40px;
+}
+.stat-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    text-align:center;
+    gap:20px;
+}
+.stat h2{
+    color:#0f4c81;
+    font-size:36px;
+}
+.stat p{
+    color:#666;
+}
+</style>
+
 <!-- Hero Section -->
-<section class="hero-banner hero-home">
-    <div class="hero-content">
-        <h1>Welcome to Greenwood Academy</h1>
-        <p>
-            Empowering students with knowledge, innovation, and values through
-            world-class education and modern learning facilities.
-        </p>
+<section class="hero">
+    <h1>Welcome to Greenwood Academy</h1>
+    <p>
+        Empowering students with knowledge, innovation, and values through
+        world-class education and modern learning facilities.
+    </p>
 
-        <div class="hero-buttons">
-            <a href="{{ url_for('admission') }}" class="btn-accent">
-                <i class="fa-solid fa-file-pen"></i> Apply for Admission
-            </a>
+    <div class="hero-btns">
+        <a href="{{ url_for('admission') }}" class="btn btn-primary">
+            Apply for Admission
+        </a>
 
-            <a href="{{ url_for('gallery') }}" class="btn-secondary">
-                <i class="fa-solid fa-images"></i> Explore Campus
-            </a>
-        </div>
-    </div>
-    
-    <div class="hero-image">
-        <img src="{{ url_for('static', filename='images/campus.svg') }}" alt="Greenwood Academy Campus">
+        <a href="{{ url_for('gallery') }}" class="btn btn-outline">
+            Explore Campus
+        </a>
     </div>
 </section>
 
-<!-- Features -->
-<section class="features-section">
+<!-- Why Choose -->
+<section>
     <div class="section-title">
         <h2>Why Choose Greenwood Academy?</h2>
-        <p>Providing holistic education with academic excellence and extracurricular development.</p>
+        <p>
+            Providing holistic education with academic excellence and
+            extracurricular development.
+        </p>
     </div>
 
-    <div class="modules-grid">
+    <div class="features">
 
-        <div class="module-card">
-            <div class="card-image">
-                <img src="{{ url_for('static', filename='images/gallery1.svg') }}" alt="Smart Learning">
-            </div>
-            <div class="card-badge">
-                <i class="fa-solid fa-laptop-code"></i> Smart Learning
-            </div>
+        <div class="card">
+            <div class="icon">💻</div>
             <h3>Digital Classrooms</h3>
             <p>
-                Interactive smart classrooms equipped with modern technology for engaging learning experiences.
+                Interactive smart classrooms equipped with modern technology
+                for engaging learning experiences.
             </p>
         </div>
 
-        <div class="module-card">
-            <div class="card-image">
-                <img src="{{ url_for('static', filename='images/gallery2.svg') }}" alt="Science Labs">
-            </div>
-            <div class="card-badge">
-                <i class="fa-solid fa-flask"></i> Innovation
-            </div>
-            <h3>Science & Computer Labs</h3>
+        <div class="card">
+            <div class="icon">🔬</div>
+            <h3>Science & Innovation</h3>
             <p>
-                Well-equipped laboratories that encourage practical experiments, coding, and robotics education.
+                Well-equipped laboratories encouraging creativity,
+                experimentation, and scientific thinking.
             </p>
         </div>
 
-        <div class="module-card">
-            <div class="card-image">
-                <img src="{{ url_for('static', filename='images/gallery5.svg') }}" alt="Library">
-            </div>
-            <div class="card-badge">
-                <i class="fa-solid fa-book-open"></i> Knowledge Hub
-            </div>
-            <h3>Modern Library</h3>
+        <div class="card">
+            <div class="icon">📚</div>
+            <h3>Academic Excellence</h3>
             <p>
-                Access over 10,000 books, digital journals, and collaborative study spaces for research and reading.
+                Experienced faculty and a student-centered curriculum designed
+                for outstanding academic performance.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">⚽</div>
+            <h3>Sports & Activities</h3>
+            <p>
+                A wide range of sports, arts, and extracurricular programs that
+                develop leadership and teamwork.
             </p>
         </div>
 
@@ -81,48 +192,30 @@
 </section>
 
 <!-- Statistics -->
-<section class="stats-section">
-    <div class="section-title">
-        <h2>Greenwood in Numbers</h2>
-    </div>
+<section class="stats">
+    <div class="stat-grid">
 
-    <div class="stats-grid">
-        <div class="stat-card">
-            <img src="{{ url_for('static', filename='images/students.svg') }}" alt="Students" class="stat-icon">
-            <h3>2,500+</h3>
+        <div class="stat">
+            <h2>1500+</h2>
             <p>Students</p>
         </div>
 
-        <div class="stat-card">
-            <img src="{{ url_for('static', filename='images/faculty1.svg') }}" alt="Faculty" class="stat-icon">
-            <h3>150+</h3>
-            <p>Expert Faculty</p>
+        <div class="stat">
+            <h2>120+</h2>
+            <p>Expert Teachers</p>
         </div>
 
-        <div class="stat-card">
-            <img src="{{ url_for('static', filename='images/gallery5.svg') }}" alt="Books" class="stat-icon">
-            <h3>10,000+</h3>
-            <p>Library Books</p>
+        <div class="stat">
+            <h2>35+</h2>
+            <p>Modern Classrooms</p>
         </div>
 
-        <div class="stat-card">
-            <i class="fa-solid fa-trophy stat-icon-text"></i>
-            <h3>98%</h3>
-            <p>Academic Success Rate</p>
+        <div class="stat">
+            <h2>98%</h2>
+            <p>Academic Success</p>
         </div>
+
     </div>
-</section>
-
-<!-- Call to Action -->
-<section class="cta-section">
-    <h2>Begin Your Academic Journey</h2>
-    <p>
-        Admissions are now open for the 2026–2027 academic year. Join a community dedicated to excellence.
-    </p>
-
-    <a href="{{ url_for('admission') }}" class="btn-accent">
-        <i class="fa-solid fa-arrow-right"></i> Apply Now
-    </a>
 </section>
 
 {% endblock %}
