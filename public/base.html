@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>{% block title %}Greenwood Academy{% endblock %}</title>
 
-    <link rel="stylesheet" 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Main CSS -->
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
 
     {% block extra_head %}{% endblock %}
 </head>
+
 <body>
 
 <header class="navbar">
@@ -31,7 +38,9 @@
 
         <button class="mobile-menu-toggle"
                 onclick="toggleMobileMenu()"
-                aria-label="Menu">
+                aria-label="Open navigation menu"
+                aria-controls="primary-nav"
+                aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
         </button>
 
@@ -60,7 +69,8 @@
         <div class="nav-actions">
             <button id="theme-toggle"
                     class="btn-secondary-icon"
-                    onclick="toggleTheme()">
+                    onclick="toggleTheme()"
+                    aria-label="Toggle dark mode">
                 <i class="fa-solid fa-moon"></i>
             </button>
         </div>
@@ -78,7 +88,9 @@
 
         <div>
             <h3>Greenwood Academy</h3>
-            <p>Empowering students with knowledge, skills, and values since 1998.</p>
+            <p>
+                Empowering students with knowledge, skills, and values since 1998.
+            </p>
         </div>
 
         <div>
@@ -90,15 +102,15 @@
 
         <div>
             <h4>Quick Links</h4>
-            <a href="admission.html">Apply Now</a><br>
-            <a href="events.html">Upcoming Events</a><br>
-            <a href="faculty.html">Our Faculty</a>
+            <a href="{{ url_for('admission') }}">Apply Now</a><br>
+            <a href="{{ url_for('events') }}">Upcoming Events</a><br>
+            <a href="{{ url_for('faculty') }}">Our Faculty</a>
         </div>
 
     </div>
 
     <p class="footer-copy">
-        &copy; 2026 Greenwood Academy. All rights reserved.
+        &copy; 2026 Greenwood Academy. All Rights Reserved.
     </p>
 
 </footer>
@@ -111,7 +123,11 @@
             <i class="fa-solid fa-robot"></i> Student Help Desk
         </div>
 
-        <button onclick="toggleChatWidget()">&times;</button>
+        <button type="button"
+                onclick="toggleChatWidget()"
+                aria-label="Close chat">
+            &times;
+        </button>
     </div>
 
     <div id="chat-messages" class="chat-messages">
@@ -123,9 +139,11 @@
     <form class="chat-input-area" onsubmit="sendChatMessage(event)">
         <input id="chat-input"
                type="text"
-               placeholder="Type your question...">
+               placeholder="Type your question..."
+               autocomplete="off"
+               required>
 
-        <button type="submit">
+        <button type="submit" aria-label="Send message">
             <i class="fa-solid fa-paper-plane"></i>
         </button>
     </form>
@@ -134,18 +152,21 @@
 
 <button id="chat-fab"
         class="chat-fab"
-        onclick="toggleChatWidget()">
+        onclick="toggleChatWidget()"
+        aria-label="Open chat">
     <i class="fa-solid fa-comments"></i>
 </button>
 
 <dialog id="lightbox-modal" class="lightbox-modal">
 
     <button class="close-btn"
-            onclick="closeModal('lightbox-modal')">
+            type="button"
+            onclick="closeModal('lightbox-modal')"
+            aria-label="Close image">
         &times;
     </button>
 
-    <img id="lightbox-img" src="" alt="Gallery">
+    <img id="lightbox-img" src="" alt="Gallery image">
     <p id="lightbox-caption"></p>
 
 </dialog>
