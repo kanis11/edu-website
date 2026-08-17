@@ -6,8 +6,7 @@
     <title>Apex Institute of Technology - Learning Portal</title>
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Flask Static CSS Link -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
@@ -76,7 +75,7 @@
                 <div class="card-badge"><i class="fa-solid fa-bookmark" aria-hidden="true"></i> Module 1</div>
                 <h3>Frontend Engineering & State Management</h3>
                 <p>Master modern asynchronous JavaScript, DOM architecture, and state synchronization.</p>
-                <button class="btn-primary" onclick="openModuleModal('Frontend Engineering', '/static/pdfs/module1.pdf')">
+                <button class="btn-primary" onclick="openModuleModal('Frontend Engineering', '/pdfs/module1.pdf')">
                     <i class="fa-solid fa-arrow-right-to-bracket" aria-hidden="true"></i> Start Learning
                 </button>
             </div>
@@ -85,7 +84,7 @@
                 <div class="card-badge"><i class="fa-solid fa-bookmark" aria-hidden="true"></i> Module 2</div>
                 <h3>Python Backend & REST API Design</h3>
                 <p>Build scalable web services using Flask, asynchronous dispatchers, and CORS controls.</p>
-                <button class="btn-primary" onclick="openModuleModal('Backend Architecture', '/static/pdfs/module2.pdf')">
+                <button class="btn-primary" onclick="openModuleModal('Backend Architecture', '/pdfs/module2.pdf')">
                     <i class="fa-solid fa-arrow-right-to-bracket" aria-hidden="true"></i> Start Learning
                 </button>
             </div>
