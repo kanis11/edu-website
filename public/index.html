@@ -5,7 +5,7 @@
 {% block content %}
 
 <!-- Hero Section -->
-<section class="hero-banner">
+<section class="hero-banner hero-home">
     <div class="hero-content">
         <h1>Welcome to Greenwood Academy</h1>
         <p>
@@ -23,6 +23,10 @@
             </a>
         </div>
     </div>
+    
+    <div class="hero-image">
+        <img src="{{ url_for('static', filename='images/campus.svg') }}" alt="Greenwood Academy Campus">
+    </div>
 </section>
 
 <!-- Features -->
@@ -35,6 +39,9 @@
     <div class="modules-grid">
 
         <div class="module-card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/gallery1.svg') }}" alt="Smart Learning">
+            </div>
             <div class="card-badge">
                 <i class="fa-solid fa-laptop-code"></i> Smart Learning
             </div>
@@ -45,6 +52,9 @@
         </div>
 
         <div class="module-card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/gallery2.svg') }}" alt="Science Labs">
+            </div>
             <div class="card-badge">
                 <i class="fa-solid fa-flask"></i> Innovation
             </div>
@@ -55,6 +65,9 @@
         </div>
 
         <div class="module-card">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/gallery5.svg') }}" alt="Library">
+            </div>
             <div class="card-badge">
                 <i class="fa-solid fa-book-open"></i> Knowledge Hub
             </div>
@@ -75,25 +88,25 @@
 
     <div class="stats-grid">
         <div class="stat-card">
-            <i class="fa-solid fa-user-graduate"></i>
+            <img src="{{ url_for('static', filename='images/students.svg') }}" alt="Students" class="stat-icon">
             <h3>2,500+</h3>
             <p>Students</p>
         </div>
 
         <div class="stat-card">
-            <i class="fa-solid fa-chalkboard-user"></i>
+            <img src="{{ url_for('static', filename='images/faculty1.svg') }}" alt="Faculty" class="stat-icon">
             <h3>150+</h3>
             <p>Expert Faculty</p>
         </div>
 
         <div class="stat-card">
-            <i class="fa-solid fa-book"></i>
+            <img src="{{ url_for('static', filename='images/gallery5.svg') }}" alt="Books" class="stat-icon">
             <h3>10,000+</h3>
             <p>Library Books</p>
         </div>
 
         <div class="stat-card">
-            <i class="fa-solid fa-trophy"></i>
+            <i class="fa-solid fa-trophy stat-icon-text"></i>
             <h3>98%</h3>
             <p>Academic Success Rate</p>
         </div>
