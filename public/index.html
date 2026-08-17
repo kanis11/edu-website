@@ -1,219 +1,115 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Institute of Technology - Learning Portal</title>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
+{% extends "base.html" %}
 
-    <!-- Professional Navigation Bar -->
-    <header class="navbar">
-        <div class="nav-container">
-            <div class="brand-logo">
-                <i class="fa-solid fa-graduation-cap logo-icon" aria-hidden="true"></i>
-                <div class="brand-text">
-                    <span class="institute-name">APEX INSTITUTE</span>
-                    <span class="portal-tag">ACADEMIC LEARNING PORTAL</span>
-                </div>
-            </div>
+{% block title %}Greenwood Academy - Home{% endblock %}
 
-            <!-- Mobile Menu Toggle Button -->
-            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMobileMenu()">
-                <i class="fa-solid fa-bars" aria-hidden="true"></i>
-            </button>
+{% block content %}
 
-            <nav class="nav-menu" id="primary-nav">
-                <div class="dropdown">
-                    <button class="dropdown-btn active" aria-expanded="false" onclick="toggleDropdown(this)">
-                        <i class="fa-solid fa-book-open" aria-hidden="true"></i> Courses <i class="fa-solid fa-chevron-down arrow" aria-hidden="true"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="#"><i class="fa-solid fa-code" aria-hidden="true"></i> Computer Science</a>
-                        <a href="#"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Data Analytics</a>
-                        <a href="#"><i class="fa-solid fa-robot" aria-hidden="true"></i> Artificial Intelligence</a>
-                    </div>
-                </div>
+<!-- Hero Section -->
+<section class="hero-banner">
+    <div class="hero-content">
+        <h1>Welcome to Greenwood Academy</h1>
+        <p>
+            Empowering students with knowledge, innovation, and values through
+            world-class education and modern learning facilities.
+        </p>
 
-                <div class="dropdown">
-                    <button class="dropdown-btn" aria-expanded="false" onclick="toggleDropdown(this)">
-                        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Student Portal <i class="fa-solid fa-chevron-down arrow" aria-hidden="true"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="#"><i class="fa-solid fa-id-card" aria-hidden="true"></i> My Dashboard</a>
-                        <a href="#"><i class="fa-solid fa-certificate" aria-hidden="true"></i> Certificates</a>
-                        <a href="#"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i> Transcripts</a>
-                    </div>
-                </div>
+        <div class="hero-buttons">
+            <a href="{{ url_for('admission') }}" class="btn-accent">
+                <i class="fa-solid fa-file-pen"></i> Apply for Admission
+            </a>
 
-                <a href="#" class="nav-link"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i> Announcements</a>
-            </nav>
-
-            <div class="nav-actions">
-                <button class="btn-secondary-icon" id="theme-toggle" aria-label="Switch to dark mode" onclick="toggleTheme()">
-                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
-                </button>
-                <button class="btn-accent" onclick="openModal('chat-modal')">
-                    <i class="fa-solid fa-comments" aria-hidden="true"></i> Student Support
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="main-container">
-        <section class="hero-banner">
-            <h1>Advanced Web Engineering Program</h1>
-            <p>Access your course materials, track progression, and request support from academic tutors.</p>
-        </section>
-
-        <section class="modules-grid">
-            <div class="module-card">
-                <div class="card-badge"><i class="fa-solid fa-bookmark" aria-hidden="true"></i> Module 1</div>
-                <h3>Frontend Engineering & State Management</h3>
-                <p>Master modern asynchronous JavaScript, DOM architecture, and state synchronization.</p>
-                <button class="btn-primary" onclick="openModuleModal('Frontend Engineering', '/pdfs/module1.pdf')">
-                    <i class="fa-solid fa-arrow-right-to-bracket" aria-hidden="true"></i> Start Learning
-                </button>
-            </div>
-
-            <div class="module-card">
-                <div class="card-badge"><i class="fa-solid fa-bookmark" aria-hidden="true"></i> Module 2</div>
-                <h3>Python Backend & REST API Design</h3>
-                <p>Build scalable web services using Flask, asynchronous dispatchers, and CORS controls.</p>
-                <button class="btn-primary" onclick="openModuleModal('Backend Architecture', '/pdfs/module2.pdf')">
-                    <i class="fa-solid fa-arrow-right-to-bracket" aria-hidden="true"></i> Start Learning
-                </button>
-            </div>
-        </section>
-    </main>
-
-    <!-- Lesson Dialog -->
-    <dialog id="lesson-modal" class="modal" aria-labelledby="modal-title">
-        <div class="modal-content">
-            <button class="close-btn" aria-label="Close dialog" onclick="closeModal('lesson-modal')">&times;</button>
-            <h2 id="modal-title">Module Syllabus</h2>
-            <p id="modal-description">Download your curriculum PDF below.</p>
-            <a id="modal-download-btn" href="#" class="btn-accent-download" download>
-                <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Download Lesson Syllabus (PDF)
+            <a href="{{ url_for('gallery') }}" class="btn-secondary">
+                <i class="fa-solid fa-images"></i> Explore Campus
             </a>
         </div>
-    </dialog>
+    </div>
+</section>
 
-    <!-- Chat Dialog -->
-    <dialog id="chat-modal" class="modal chat-modal-dialog" aria-labelledby="chat-modal-title">
-        <div class="chat-container">
-            <div class="chat-header">
-                <div class="chat-title" id="chat-modal-title"><i class="fa-solid fa-robot" aria-hidden="true"></i> Academic Support Assistant</div>
-                <button class="close-btn-light" aria-label="Close support chat" onclick="closeModal('chat-modal')">&times;</button>
+<!-- Features -->
+<section class="features-section">
+    <div class="section-title">
+        <h2>Why Choose Greenwood Academy?</h2>
+        <p>Providing holistic education with academic excellence and extracurricular development.</p>
+    </div>
+
+    <div class="modules-grid">
+
+        <div class="module-card">
+            <div class="card-badge">
+                <i class="fa-solid fa-laptop-code"></i> Smart Learning
             </div>
-            <div id="chat-messages" class="chat-messages" role="log" aria-live="polite">
-                <div class="message bot">Hello! How can I assist with your coursework today?</div>
-            </div>
-            <form class="chat-input-area" onsubmit="sendChatMessage(event)">
-                <input type="text" id="chat-input" placeholder="Ask a question about your course..." autocomplete="off" aria-label="Chat Message Input">
-                <button type="submit" class="btn-accent" aria-label="Send Message">
-                    <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-                </button>
-            </form>
+            <h3>Digital Classrooms</h3>
+            <p>
+                Interactive smart classrooms equipped with modern technology for engaging learning experiences.
+            </p>
         </div>
-    </dialog>
 
-    <!-- JavaScript Handling UI Interactions & Accessibility -->
-    <script>
-        let lastActiveElement = null;
+        <div class="module-card">
+            <div class="card-badge">
+                <i class="fa-solid fa-flask"></i> Innovation
+            </div>
+            <h3>Science & Computer Labs</h3>
+            <p>
+                Well-equipped laboratories that encourage practical experiments, coding, and robotics education.
+            </p>
+        </div>
 
-        function toggleTheme() {
-            const current = document.documentElement.getAttribute('data-theme');
-            const newTheme = current === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            
-            const themeBtn = document.getElementById('theme-toggle');
-            themeBtn.setAttribute('aria-label', `Switch to ${current === 'dark' ? 'dark' : 'light'} mode`);
-            themeBtn.innerHTML = newTheme === 'dark' 
-                ? '<i class="fa-solid fa-sun" aria-hidden="true"></i>' 
-                : '<i class="fa-solid fa-moon" aria-hidden="true"></i>';
-        }
+        <div class="module-card">
+            <div class="card-badge">
+                <i class="fa-solid fa-book-open"></i> Knowledge Hub
+            </div>
+            <h3>Modern Library</h3>
+            <p>
+                Access over 10,000 books, digital journals, and collaborative study spaces for research and reading.
+            </p>
+        </div>
 
-        function toggleDropdown(button) {
-            const dropdown = button.closest('.dropdown');
-            const isExpanded = button.getAttribute('aria-expanded') === 'true';
-            
-            // Close other open dropdowns
-            document.querySelectorAll('.dropdown-btn').forEach(btn => {
-                btn.setAttribute('aria-expanded', 'false');
-                btn.closest('.dropdown').classList.remove('open');
-            });
+    </div>
+</section>
 
-            if (!isExpanded) {
-                button.setAttribute('aria-expanded', 'true');
-                dropdown.classList.add('open');
-            }
-        }
+<!-- Statistics -->
+<section class="stats-section">
+    <div class="section-title">
+        <h2>Greenwood in Numbers</h2>
+    </div>
 
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.dropdown')) {
-                document.querySelectorAll('.dropdown-btn').forEach(btn => {
-                    btn.setAttribute('aria-expanded', 'false');
-                    btn.closest('.dropdown').classList.remove('open');
-                });
-            }
-        });
+    <div class="stats-grid">
+        <div class="stat-card">
+            <i class="fa-solid fa-user-graduate"></i>
+            <h3>2,500+</h3>
+            <p>Students</p>
+        </div>
 
-        function toggleMobileMenu() {
-            const nav = document.getElementById('primary-nav');
-            const btn = document.querySelector('.mobile-menu-toggle');
-            const isOpen = nav.classList.toggle('open');
-            btn.setAttribute('aria-expanded', isOpen);
-        }
+        <div class="stat-card">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <h3>150+</h3>
+            <p>Expert Faculty</p>
+        </div>
 
-        function openModal(id) {
-            lastActiveElement = document.activeElement;
-            const modal = document.getElementById(id);
-            modal.showModal();
-        }
+        <div class="stat-card">
+            <i class="fa-solid fa-book"></i>
+            <h3>10,000+</h3>
+            <p>Library Books</p>
+        </div>
 
-        function closeModal(id) {
-            const modal = document.getElementById(id);
-            modal.close();
-            if (lastActiveElement) {
-                lastActiveElement.focus();
-            }
-        }
+        <div class="stat-card">
+            <i class="fa-solid fa-trophy"></i>
+            <h3>98%</h3>
+            <p>Academic Success Rate</p>
+        </div>
+    </div>
+</section>
 
-        function openModuleModal(title, pdfPath) {
-            document.getElementById('modal-title').textContent = title;
-            document.getElementById('modal-download-btn').href = pdfPath;
-            openModal('lesson-modal');
-        }
+<!-- Call to Action -->
+<section class="cta-section">
+    <h2>Begin Your Academic Journey</h2>
+    <p>
+        Admissions are now open for the 2026–2027 academic year. Join a community dedicated to excellence.
+    </p>
 
-        async function sendChatMessage(e) {
-            e.preventDefault();
-            const input = document.getElementById('chat-input');
-            const msg = input.value.trim();
-            if (!msg) return;
+    <a href="{{ url_for('admission') }}" class="btn-accent">
+        <i class="fa-solid fa-arrow-right"></i> Apply Now
+    </a>
+</section>
 
-            const box = document.getElementById('chat-messages');
-            box.innerHTML += `<div class="message user">${msg}</div>`;
-            input.value = '';
-
-            try {
-                const res = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ message: msg })
-                });
-                const data = await res.json();
-                box.innerHTML += `<div class="message bot">${data.reply}</div>`;
-            } catch (err) {
-                box.innerHTML += `<div class="message bot">Server connection error.</div>`;
-            }
-            box.scrollTop = box.scrollHeight;
-        }
-    </script>
-</body>
-</html>
+{% endblock %}

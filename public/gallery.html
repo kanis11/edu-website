@@ -1,39 +1,37 @@
 {% extends "base.html" %}
 
-{% block title %}Gallery{% endblock %}
+{% block title %}Campus Gallery - Greenwood Academy{% endblock %}
 
 {% block content %}
 
 <section class="page-header">
     <h1>Campus Gallery</h1>
-    <p>Explore life at Greenwood Academy.</p>
+    <p>Explore classrooms, laboratories, sports, library, and student life at Greenwood Academy.</p>
 </section>
 
-<section class="gallery-grid">
-
 {% set images = [
-    {"img":"gallery1.svg","title":"Smart Classroom","desc":"Interactive learning"},
-    {"img":"gallery2.svg","title":"Science Lab","desc":"Modern laboratory"},
-    {"img":"gallery3.svg","title":"Sports Day","desc":"Annual athletics"}
+    {"img":"gallery1.svg","title":"Smart Classroom","desc":"Interactive digital learning with smart boards."},
+    {"img":"gallery2.svg","title":"Science Laboratory","desc":"Modern lab for practical science experiments."},
+    {"img":"gallery3.svg","title":"Sports Day","desc":"Students participating in annual athletics."},
+    {"img":"gallery4.svg","title":"Library","desc":"A peaceful reading space with 10,000+ books."},
+    {"img":"gallery5.svg","title":"Computer Lab","desc":"Coding and robotics learning environment."},
+    {"img":"gallery6.svg","title":"Cultural Festival","desc":"Music, dance, and cultural performances."}
 ] %}
 
-{% for item in images %}
+<section class="gallery-grid">
+    {% for item in images %}
+    <figure class="gallery-item fade-in"
+        onclick="openLightbox('{{ url_for('static', filename='images/' + item.img) }}', '{{ item.title }}')">
 
-<figure class="gallery-item"
-onclick='openLightbox("{{ url_for(&#39;static&#39;, filename=&#39;images/&#39; + item.img) }}", "{{ item.title }}")'>
+        <img src="{{ url_for('static', filename='images/' + item.img) }}"
+             alt="{{ item.title }}">
 
-    <img src="{{ url_for('static', filename='images/' + item.img) }}"
-         alt="{{ item.title }}">
-
-    <figcaption>
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.desc }}</p>
-    </figcaption>
-
-</figure>
-
-{% endfor %}
-
+        <figcaption>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.desc }}</p>
+        </figcaption>
+    </figure>
+    {% endfor %}
 </section>
 
 {% endblock %}
