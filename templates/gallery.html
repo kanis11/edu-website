@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Gallery - Greenwood Academy{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Campus Gallery</h1>
+    <p>Explore life at Greenwood Academy — classrooms, labs, sports, cultural events, and celebrations.</p>
+</section>
+
+<section class="gallery-grid">
+    {% set images = [
+        ('gallery1.svg', 'Smart Classroom Session', 'Students engaged in interactive digital learning'),
+        ('gallery2.svg', 'Science Laboratory', 'Hands-on experiments in our modern science lab'),
+        ('gallery3.svg', 'Annual Sports Day', 'Athletes competing on the school track field'),
+        ('gallery4.svg', 'Cultural Festival', 'Students performing at the annual cultural fest'),
+        ('gallery5.svg', 'Library & Reading Room', 'Quiet study space with 10,000+ books'),
+        ('gallery6.svg', 'Art & Craft Workshop', 'Creative expression through painting and crafts'),
+        ('gallery7.svg', 'Computer Lab', 'Coding and robotics sessions for senior students'),
+        ('gallery8.svg', 'Graduation Ceremony', 'Celebrating the achievements of our graduates')
+    ] %}
+    {% for img, title, desc in images %}
+    <figure class="gallery-item fade-in" onclick="openLightbox('{{ url_for('static', filename='images/' + img) }}', '{{ title }}')">
+        <img src="{{ url_for('static', filename='images/' + img) }}" alt="{{ title }}">
+        <figcaption>
+            <h3>{{ title }}</h3>
+            <p>{{ desc }}</p>
+        </figcaption>
+    </figure>
+    {% endfor %}
+</section>
+{% endblock %}

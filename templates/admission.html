@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% block title %}Admission - Greenwood Academy{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Admission Form</h1>
+    <p>Complete the form below to apply for the 2026–27 academic session. Our admissions team will contact you within 3 working days.</p>
+</section>
+
+<section class="form-section">
+    <form id="admission-form" class="admission-form" onsubmit="submitAdmission(event)">
+        <fieldset>
+            <legend><i class="fa-solid fa-user"></i> Student Information</legend>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="first_name">First Name *</label>
+                    <input type="text" id="first_name" name="first_name" required placeholder="Enter first name">
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name *</label>
+                    <input type="text" id="last_name" name="last_name" required placeholder="Enter last name">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="dob">Date of Birth *</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender *</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="grade">Applying for Grade *</label>
+                <select id="grade" name="grade" required>
+                    <option value="">Select grade</option>
+                    <option value="nursery">Nursery</option>
+                    <option value="lkg">LKG</option>
+                    <option value="ukg">UKG</option>
+                    <option value="1">Grade I</option>
+                    <option value="2">Grade II</option>
+                    <option value="3">Grade III</option>
+                    <option value="4">Grade IV</option>
+                    <option value="5">Grade V</option>
+                    <option value="6">Grade VI</option>
+                    <option value="7">Grade VII</option>
+                    <option value="8">Grade VIII</option>
+                    <option value="9">Grade IX</option>
+                    <option value="10">Grade X</option>
+                    <option value="11">Grade XI</option>
+                    <option value="12">Grade XII</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend><i class="fa-solid fa-address-book"></i> Parent / Guardian Details</legend>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="parent_name">Parent Name *</label>
+                    <input type="text" id="parent_name" name="parent_name" required placeholder="Full name">
+                </div>
+                <div class="form-group">
+                    <label for="relation">Relation *</label>
+                    <select id="relation" name="relation" required>
+                        <option value="">Select</option>
+                        <option value="father">Father</option>
+                        <option value="mother">Mother</option>
+                        <option value="guardian">Guardian</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="parent@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX" pattern="[0-9+\s\-()]{10,15}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Residential Address *</label>
+                <textarea id="address" name="address" rows="3" required placeholder="Full address with pin code"></textarea>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend><i class="fa-solid fa-school"></i> Previous School (if applicable)</legend>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="prev_school">Previous School Name</label>
+                    <input type="text" id="prev_school" name="prev_school" placeholder="School name">
+                </div>
+                <div class="form-group">
+                    <label for="prev_grade">Last Grade Completed</label>
+                    <input type="text" id="prev_grade" name="prev_grade" placeholder="e.g. Grade V">
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="form-group checkbox-group">
+            <label>
+                <input type="checkbox" name="terms" required>
+                I confirm that the information provided is accurate and I agree to the school's admission policy.
+            </label>
+        </div>
+
+        <button type="submit" class="btn-primary btn-submit"><i class="fa-solid fa-paper-plane"></i> Submit Application</button>
+        <p id="form-status" class="form-status" role="status"></p>
+    </form>
+
+    <aside class="form-sidebar">
+        <img src="{{ url_for('static', filename='images/admission.svg') }}" alt="Admission illustration">
+        <h3>Admission Process</h3>
+        <ol class="process-list">
+            <li>Submit online application form</li>
+            <li>Document verification call</li>
+            <li>Interaction / assessment (if required)</li>
+            <li>Fee payment & enrollment confirmation</li>
+        </ol>
+        <div class="info-box">
+            <h4>Required Documents</h4>
+            <ul>
+                <li>Birth certificate</li>
+                <li>Previous report card</li>
+                <li>Passport-size photographs</li>
+                <li>Address proof</li>
+            </ul>
+        </div>
+    </aside>
+</section>
+{% endblock %}

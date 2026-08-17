@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="400" height="250">
+  <rect width="400" height="250" fill="#1e40af"/>
+  
+  <rect x="40" y="40" width="320" height="160" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <circle cx="200" cy="100" r="40" fill="rgba(255,255,255,0.3)"/>
+
+  <text x="200" y="238" text-anchor="middle" fill="#ffffff" font-family="Segoe UI,sans-serif" font-size="14" font-weight="600" opacity="0.9">Classroom</text>
+</svg>

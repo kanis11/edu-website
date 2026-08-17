@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" width="500" height="300">
+  <rect width="500" height="300" fill="#1e40af"/>
+  
+  <circle cx="150" cy="100" r="35" fill="#fcd34d"/>
+  <rect x="115" y="140" width="70" height="90" rx="10" fill="#3b82f6"/>
+  <circle cx="280" cy="90" r="30" fill="#fca5a5"/>
+  <rect x="250" y="125" width="60" height="85" rx="10" fill="#16a34a"/>
+  <circle cx="380" cy="105" r="32" fill="#fde68a"/>
+  <rect x="348" y="142" width="64" height="88" rx="10" fill="#7c3aed"/>
+
+  <text x="250" y="288" text-anchor="middle" fill="#ffffff" font-family="Segoe UI,sans-serif" font-size="14" font-weight="600" opacity="0.9">Our Students</text>
+</svg>

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Events - Greenwood Academy{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Upcoming Events</h1>
+    <p>Stay updated with academic calendars, competitions, workshops, and celebrations at Greenwood Academy.</p>
+</section>
+
+<section class="events-list">
+    <article class="event-card fade-in">
+        <div class="event-date">
+            <span class="event-day">22</span>
+            <span class="event-month">Aug</span>
+        </div>
+        <div class="event-details">
+            <span class="event-tag academic">Academic</span>
+            <h3>Parent-Teacher Meeting</h3>
+            <p><i class="fa-solid fa-clock"></i> 9:00 AM – 1:00 PM &nbsp;|&nbsp; <i class="fa-solid fa-location-dot"></i> Main Auditorium</p>
+            <p>Quarterly review of student progress. All parents are requested to attend with their ward's report card.</p>
+        </div>
+        <img src="{{ url_for('static', filename='images/event1.svg') }}" alt="Parent teacher meeting" class="event-img">
+    </article>
+
+    <article class="event-card fade-in">
+        <div class="event-date">
+            <span class="event-day">05</span>
+            <span class="event-month">Sep</span>
+        </div>
+        <div class="event-details">
+            <span class="event-tag sports">Sports</span>
+            <h3>Inter-House Athletics Meet</h3>
+            <p><i class="fa-solid fa-clock"></i> 8:00 AM – 4:00 PM &nbsp;|&nbsp; <i class="fa-solid fa-location-dot"></i> Sports Complex</p>
+            <p>Track and field events for Grades VI–XII. Houses compete for the Greenwood Champion Trophy.</p>
+        </div>
+        <img src="{{ url_for('static', filename='images/event2.svg') }}" alt="Athletics meet" class="event-img">
+    </article>
+
+    <article class="event-card fade-in">
+        <div class="event-date">
+            <span class="event-day">18</span>
+            <span class="event-month">Sep</span>
+        </div>
+        <div class="event-details">
+            <span class="event-tag cultural">Cultural</span>
+            <h3>Science & Innovation Fair</h3>
+            <p><i class="fa-solid fa-clock"></i> 10:00 AM – 3:00 PM &nbsp;|&nbsp; <i class="fa-solid fa-location-dot"></i> Science Block</p>
+            <p>Students showcase science projects, robotics demos, and environmental models. Open to all parents.</p>
+        </div>
+        <img src="{{ url_for('static', filename='images/event3.svg') }}" alt="Science fair" class="event-img">
+    </article>
+
+    <article class="event-card fade-in">
+        <div class="event-date">
+            <span class="event-day">02</span>
+            <span class="event-month">Oct</span>
+        </div>
+        <div class="event-details">
+            <span class="event-tag cultural">Cultural</span>
+            <h3>Annual Day Celebration</h3>
+            <p><i class="fa-solid fa-clock"></i> 5:00 PM – 9:00 PM &nbsp;|&nbsp; <i class="fa-solid fa-location-dot"></i> Open Air Theatre</p>
+            <p>Music, dance, drama performances and award ceremony celebrating 28 years of Greenwood Academy.</p>
+        </div>
+        <img src="{{ url_for('static', filename='images/event4.svg') }}" alt="Annual day" class="event-img">
+    </article>
+
+    <article class="event-card fade-in">
+        <div class="event-date">
+            <span class="event-day">14</span>
+            <span class="event-month">Nov</span>
+        </div>
+        <div class="event-details">
+            <span class="event-tag academic">Academic</span>
+            <h3>Career Guidance Workshop</h3>
+            <p><i class="fa-solid fa-clock"></i> 11:00 AM – 2:00 PM &nbsp;|&nbsp; <i class="fa-solid fa-location-dot"></i> Seminar Hall</p>
+            <p>Industry experts guide Grade X–XII students on career paths in engineering, medicine, arts, and entrepreneurship.</p>
+        </div>
+        <img src="{{ url_for('static', filename='images/event5.svg') }}" alt="Career workshop" class="event-img">
+    </article>
+</section>
+{% endblock %}

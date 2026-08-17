@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Faculty - Greenwood Academy{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Our Faculty</h1>
+    <p>Meet the dedicated educators who inspire, guide, and nurture every student at Greenwood Academy.</p>
+</section>
+
+<section class="faculty-grid">
+    {% set faculty = [
+        ('faculty1.svg', 'Dr. Priya Sharma', 'Principal', 'Ph.D. in Education, 22 years experience in school leadership and curriculum design.'),
+        ('faculty2.svg', 'Mr. Rajesh Kumar', 'Head of Mathematics', 'M.Sc. Mathematics, National-level Olympiad coach with 15 years teaching experience.'),
+        ('faculty3.svg', 'Ms. Ananya Mehta', 'English Department Head', 'M.A. English Literature, published author and debate team mentor.'),
+        ('faculty4.svg', 'Dr. Suresh Patel', 'Science Coordinator', 'Ph.D. Physics, former IIT researcher specializing in STEM education.'),
+        ('faculty5.svg', 'Mrs. Kavita Singh', 'Primary Section Head', 'B.Ed., Montessori certified with expertise in early childhood development.'),
+        ('faculty6.svg', 'Mr. Amit Verma', 'Sports Director', 'National-level athlete, certified fitness trainer and cricket coach.')
+    ] %}
+    {% for img, name, role, bio in faculty %}
+    <article class="faculty-card fade-in">
+        <div class="faculty-photo">
+            <img src="{{ url_for('static', filename='images/' + img) }}" alt="{{ name }}">
+        </div>
+        <div class="faculty-info">
+            <h3>{{ name }}</h3>
+            <span class="faculty-role">{{ role }}</span>
+            <p>{{ bio }}</p>
+            <div class="faculty-social">
+                <a href="#" aria-label="Email {{ name }}"><i class="fa-solid fa-envelope"></i></a>
+                <a href="#" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}
