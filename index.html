@@ -3,19 +3,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Educational Learning Portal</title>
+  <title>EduPortal — Learning Hub</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Welcome to the Course Portal</h1>
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+        </svg>
+        <span>EduPortal</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#courses">Courses</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <button id="theme-toggle" class="btn-theme" aria-label="Toggle Dark Mode">
+          🌙
+        </button>
+      </nav>
+    </div>
   </header>
-  <main>
-    <section>
-      <h2>Modules</h2>
-      <p>Course notes, lectures, and resources will be posted here.</p>
-    </section>
-  </main>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <span class="badge">Structured Learning</span>
+        <h1>Master Web Development & Modern Tech</h1>
+        <p>Access structured course modules, interactive exercises, and guided learning paths designed for modern web professionals.</p>
+        <div class="hero-actions">
+          <a href="#courses" class="btn btn-primary">Browse Courses</a>
+          <a href="#about" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses Section -->
+  <section id="courses" class="courses container">
+    <div class="section-header">
+      <h2>Featured Learning Paths</h2>
+      <p>Filter by topic to find the lessons relevant to your current goals.</p>
+    </div>
+
+    <!-- Category Filter Controls -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Modules</button>
+      <button class="filter-btn" data-filter="frontend">Frontend</button>
+      <button class="filter-btn" data-filter="backend">Backend</button>
+      <button class="filter-btn" data-filter="tools">Developer Tools</button>
+    </div>
+
+    <!-- Course Cards Grid -->
+    <div class="course-grid" id="course-grid">
+      
+      <article class="card" data-category="frontend">
+        <div class="card-header">
+          <span class="card-category">Frontend</span>
+          <span class="card-duration">4 Weeks</span>
+        </div>
+        <div class="card-body">
+          <h3>Semantic HTML & Modern CSS</h3>
+          <p>Master layout techniques including CSS Grid, Flexbox, CSS Variables, and responsive design systems.</p>
+        </div>
+        <div class="card-footer">
+          <span class="status">12 Lessons</span>
+          <button class="btn-link" onclick="openModule('HTML & CSS')">View Module &rarr;</button>
+        </div>
+      </article>
+
+      <article class="card" data-category="frontend">
+        <div class="card-header">
+          <span class="card-category">Frontend</span>
+          <span class="card-duration">6 Weeks</span>
+        </div>
+        <div class="card-body">
+          <h3>JavaScript Fundamentals & DOM</h3>
+          <p>Learn core JS mechanics, event handling, asynchronous programming, dynamic UI updates, and API integration.</p>
+        </div>
+        <div class="card-footer">
+          <span class="status">18 Lessons</span>
+          <button class="btn-link" onclick="openModule('JavaScript')">View Module &rarr;</button>
+        </div>
+      </article>
+
+      <article class="card" data-category="tools">
+        <div class="card-header">
+          <span class="card-category">Developer Tools</span>
+          <span class="card-duration">2 Weeks</span>
+        </div>
+        <div class="card-body">
+          <h3>Git, GitHub & Deployment</h3>
+          <p>Understand branch workflows, version control, collaboration best practices, and continuous deployment via Netlify.</p>
+        </div>
+        <div class="card-footer">
+          <span class="status">8 Lessons</span>
+          <button class="btn-link" onclick="openModule('Git & Deployment')">View Module &rarr;</button>
+        </div>
+      </article>
+
+      <article class="card" data-category="backend">
+        <div class="card-header">
+          <span class="card-category">Backend</span>
+          <span class="card-duration">5 Weeks</span>
+        </div>
+        <div class="card-body">
+          <h3>Node.js & REST APIs</h3>
+          <p>Build robust server-side applications, route HTTP requests, handle JSON payloads, and connect to databases.</p>
+        </div>
+        <div class="card-footer">
+          <span class="status">15 Lessons</span>
+          <button class="btn-link" onclick="openModule('Node.js')">View Module &rarr;</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Interactive Modal Dialog -->
+  <dialog id="lesson-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Close dialog">&times;</button>
+      <h3 id="modal-title">Module Overview</h3>
+      <p id="modal-description">Detailed syllabus content will load here dynamically.</p>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="modal-confirm">Start Learning</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>&copy; 2026 EduPortal. Built with static HTML, CSS, and JS.</p>
+      <div class="footer-links">
+        <a href="#courses">Courses</a>
+        <a href="#about">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
   <script src="app.js"></script>
 </body>
 </html>
