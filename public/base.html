@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}Greenwood Academy{% endblock %}</title>
+    <title>Greenwood Academy</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -102,9 +102,9 @@
 
         <div>
             <h4>Quick Links</h4>
-            <a href="{{ url_for('admission') }}">Apply Now</a><br>
-            <a href="{{ url_for('events') }}">Upcoming Events</a><br>
-            <a href="{{ url_for('faculty') }}">Our Faculty</a>
+            <a href="admission.html">Apply Now</a><br>
+            <a href="events.html">Upcoming Events</a><br>
+            <a href="faculty.html">Our Faculty</a>
         </div>
 
     </div>
@@ -173,7 +173,6 @@
 
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
-{% block extra_scripts %}{% endblock %}
 
 </body>
 </html>
